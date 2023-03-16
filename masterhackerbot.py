@@ -70,6 +70,21 @@ def generate_jargon(title):
 
   return complete
 
+def skidquestion():
+    openai.api_key = os.getenv("OPENAI_API_KEY")
+
+  response = openai.Completion.create(
+    model="text-davinci-003",
+    prompt="I want you to ask questions a script kiddie would ask, for example, how install kali linucks. Pick one and format your response as <script kiddie question>. Do not add any additional formatting or text. Format as plain text with no special symbols.",
+    temperature=0.32,
+    max_tokens=256,
+    top_p=1,
+    frequency_penalty=0,
+    presence_penalty=0,
+    stop=["\n"]
+  )
+  return response
+
 if __name__ == '__main__':
   title = input("Enter the title of the post... ")
   result = generate_jargon(title)
