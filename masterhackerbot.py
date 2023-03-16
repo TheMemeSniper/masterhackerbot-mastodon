@@ -71,7 +71,7 @@ def generate_jargon(title):
   return complete
 
 def skidquestion():
-    openai.api_key = os.getenv("OPENAI_API_KEY")
+  openai.api_key = os.getenv("OPENAI_API_KEY")
 
   response = openai.Completion.create(
     model="text-davinci-003",
@@ -83,7 +83,7 @@ def skidquestion():
     presence_penalty=0,
     stop=["\n"]
   )
-  return response
+  return response.choices[0].text
 
 if __name__ == '__main__':
   title = input("Enter the title of the post... ")
