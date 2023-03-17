@@ -16,6 +16,6 @@ mastodon.log_in(
 )
 print("Logged in")
 
-
-mastodon.status_post(masterhackerbot.generate_jargon(masterhackerbot.skidquestion()))
+question = masterhackerbot.skidquestion()
+mastodon.status_post(f"Question: {question}\n\nResponse: {masterhackerbot.generate_jargon(question)}", visibility="unlisted")
 print("Posted")
